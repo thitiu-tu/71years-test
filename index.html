@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบรับบริจาคออนไลน์ คณะวารสารศาสตร์และสื่อวารมวลชน ครบรอบ 71 ปี</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="icon" href="https://quota.jc.tu.ac.th/images/jc_logo.png" type="image/png">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap');
+
+    * {
+      font-family: "Noto Sans Thai", sans-serif;
+    }
+
+    header {
+      background-color: #743d88;
+      color: white;
+      min-height: 60px;
+      padding: 10px 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans Thai", sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f8f9fa; /* สี bg-light */
+    }
+
+    #content-wrapper {
+      flex: 1 0 auto;
+      padding-bottom: 15px;
+    }
+
+    /* สไตล์ปุ่ม (จาก menu.html) */
+    .btn-sub {
+      background-color: #743d88;
+      border-color: #6f42c1;
+      color: white;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .btn-sub:hover {
+      background-color: #5a349d;
+      border-color: #533090;
+    }
+
+    .card {
+      margin-bottom: 15px;
+    }
+
+    footer {
+      padding: 10px 0;
+      text-align: center;
+      color: #6c757d; /* สี text-muted */
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="py-3">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap align-items-center justify-content-start">
+        <a href="https://jc.tu.ac.th/th" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="https://quota.jc.tu.ac.th/images/jc_logo.png" style="width: 60px; height: auto; flex-shrink: 0; margin-right: 10px;">
+          <div><h4>ระบบรับบริจาคออนไลน์ คณะวารสารศาสตร์และสื่อสารมวลชน ครบรอบ 71 ปี</h4></div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div id="content-wrapper">
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+              <div class="text-center mb-3">
+                <img src="https://cdn.jsdelivr.net/gh/thiti0365/images/Logo 71 ปี.png" class="img-fluid" alt="โลโก้ 71 ปี">
+              </div>
+              <h4 class="card-title text-center fw-bold">
+                ร่วมบริจาคเนื่องในงานวันคล้ายวันสถาปนา
+                <br>
+                คณะวารสารศาสตร์และสื่อสารมวลชน
+              </h4>
+              <p class="card-text text-center text-muted mb-4">
+                เนื่องในโอกาสครบรอบ 71 ปี
+                <br>
+                ขอเชิญร่วมบริจาคเพื่อสนับสนุนการศึกษาและกิจกรรมของคณะ
+              </p>
+
+              <button class="btn btn-sub w-100 btn-lg" onclick="redirectToApp()">
+                Click เพื่อร่วมบริจาค
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="text-center text-muted">
+      Copyright © 2025 Faculty of Journalism and Mass
+      Communication, Thammasat University.
+      All rights reserved. <br> Powered by
+      <a href="https://jc.tu.ac.th/th/personnel/staff#committee_214" class="icon-link" target="_top">
+        งานเทคโนโลยีดิจิทัลและการสื่อสาร
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // --- ฟังก์ชันตรวจสอบอุปกรณ์ (จาก E-learning) ---
+    function isIOS() {
+      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+    function isFacebookApp() {
+      return /FBAN|FBAV/i.test(navigator.userAgent);
+    }
+    function isLineApp() {
+      return /Line/i.test(navigator.userAgent);
+    }
+
+    // --- ฟังก์ชันสำหรับปุ่ม (จาก E-learning) ---
+    function redirectToApp() {
+
+      // !!! 9. แก้ไขส่วนนี้ !!!
+      // ให้ใส่ URL ที่ได้จากการ Deploy ระบบบริจาค (Code.gs) ของคุณ
+      // หากคุณมีหลายตัว (เพื่อ Load Balance) ก็ใส่ให้ครบ
+      const scriptUrls = [
+        'https://script.google.com/macros/s/YOUR_DONATION_APP_URL_1/exec',
+        'https://script.google.com/macros/s/YOUR_DONATION_APP_URL_2/exec',
+        //'https://script.google.com/macros/s/YOUR_DONATION_APP_URL_3/exec',
+        //'https://script.google.com/macros/s/YOUR_DONATION_APP_URL_4/exec'
+      ];
+
+      // โค้ดที่เหลือทำงานเหมือนเดิม
+      const randomIndex = Math.floor(Math.random() * scriptUrls.length);
+      const selectedUrl = scriptUrls[randomIndex];
+      const safariUrl = 'x-safari-' + selectedUrl;
+
+      let finalUrl;
+
+      if (isIOS() && (isFacebookApp() || isLineApp())) {
+        finalUrl = safariUrl;
+      } else {
+        finalUrl = selectedUrl;
+      }
+
+      window.open(finalUrl, '_blank');
+    }
+  </script>
+
+</body>
+</html>
